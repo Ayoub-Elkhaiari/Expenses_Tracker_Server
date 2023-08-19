@@ -9,7 +9,7 @@ const expensesRoutes = require('./routes/expensesRoutes')
 const app = express() ;
 
 app.use(cors());
-app.use(express.json()) ;
+app.use(express.json()) ; // receive req
 
 
 app.use(function(req, res, next) {
@@ -32,6 +32,7 @@ const connectToDatabase =  async () => {
         app.listen(process.env.PORT, ()=> console.log("connected"))
     } catch (error) {
         console.log(error.message) ;
+        
     }
 }
 

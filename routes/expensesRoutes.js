@@ -2,11 +2,13 @@ const express = require('express')
 
 const router = express.Router() ;
 
-const { getExpenses, createExpense } = require("../controllers/expensesController")
+const { getExpenses, createExpense, updateExpense, deleteExpense } = require("../controllers/expensesController")
 
 
 router.get('/', getExpenses) ;
 router.post('/', createExpense) ;
+router.patch('/:id', updateExpense) ;
+router.delete('/:id', deleteExpense)
 
 
 
