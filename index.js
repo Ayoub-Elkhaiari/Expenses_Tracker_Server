@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors') ;
 
 const expensesRoutes = require('./routes/expensesRoutes')
-
+const usersRoutes = require('./routes/usersRoutes') ;
 
 const app = express() ;
 
@@ -21,6 +21,7 @@ app.use(function(req, res, next) {
 
 
 app.use('/api/expenses', expensesRoutes) ;
+app.use('/api/users', usersRoutes) ;
 
 
 
@@ -29,7 +30,7 @@ const connectToDatabase =  async () => {
 
     try {
         await mongoose.connect(process.env.DB_CONNECTION) ;
-        app.listen(process.env.PORT, ()=> console.log("connected"))
+        app.listen(process.env.PORT, ()=> console.log(`Connected at port: ${process.env.PORT}`))
     } catch (error) {
         console.log(error.message) ;
         
